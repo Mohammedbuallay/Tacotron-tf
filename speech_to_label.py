@@ -8,7 +8,7 @@ from google.cloud.speech_v1 import enums
 import io
 
 def sample_recognize(local_file_path):
-    text_file = open("label.txt", "a")
+    text_file = open(os.join.path(args.data_dir,"label.txt"), "a")
     client = speech_v1.SpeechClient()
 
     language_code = "en"
@@ -43,6 +43,6 @@ if __name__ == "__main__":
     parser.add_argument('--gcp_json_file',required=True)
     args = parser.parse_args()
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= args.gcp_json_file
-    filepath = args.data_dir
+    filepath = os.path.join(args.data_dir,"Wave")
     for filename in tqdm(sorted(os.listdir(filepath))):
         sample_recognize(os.path.join(filepath,filename))
