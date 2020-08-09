@@ -1,7 +1,7 @@
 from google.cloud import speech_v1p1beta1
 import io,os
 import argparse
-
+from tqdm import tqdm
 
 from google.cloud import speech_v1
 from google.cloud.speech_v1 import enums
@@ -33,7 +33,7 @@ def sample_recognize(local_file_path):
     name = local_file_path.replace(filepath+'/','')
     name = name.replace('.wav','') 
     text_file.write(name+"|"+"".join(new_text)+"\n")
-    print (name+"|"+"".join(new_text))
+    #print (name+"|"+"".join(new_text))
     text_file.close()
 
 if __name__ == "__main__":
@@ -44,5 +44,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"]= args.gcp_json_file
     filepath = args.data_dir
-    for num,filename in enumerate(sorted(os.listdir(filepath))):
+    for filename in tqdm(sorted(os.listdir(filepath))):
         sample_recognize(os.path.join(filepath,filename))
