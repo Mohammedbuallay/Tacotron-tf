@@ -8,7 +8,7 @@ from google.cloud.speech_v1 import enums
 import io
 
 def sample_recognize(local_file_path):
-    text_file = open(os.join.path(args.data_dir,"label.txt"), "a")
+    text_file = open(os.path.join(args.data_dir,"label.txt"), "a")
     client = speech_v1.SpeechClient()
 
     language_code = "en"
