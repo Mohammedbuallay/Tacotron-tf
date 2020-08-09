@@ -8,5 +8,5 @@ An implementation of Tacotron speech synthesis on TensorFlow.
 [Colab link](https://colab.research.google.com/drive/1Z82Uw8NSTzJPS3tt2LjRz8wZOX7TNHpa?usp=sharing)
 
 
-##Credit 
+## Credit 
 this code is modifed version on [Link](https://github.com/keithito/tacotron)
